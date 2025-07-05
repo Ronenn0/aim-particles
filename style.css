@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+}
+
+:root {
+    --size: 4px;
+    --red: rgb(221, 35, 11);
+    --green: rgb(0, 255, 13);
+    --yellow: rgb(212, 255, 0);
+    --orange: rgb(255, 140, 0);
+
+}
+container {
+    position: absolute;
+    background-image: linear-gradient(200deg, rgb(15, 15, 51), rgb(49, 27, 27));
+    width: 100%;
+    height: 100%;
+}
+.particle {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    background-color: white;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.block {
+    position: absolute;
+    background-image: linear-gradient(150deg, rgb(138, 137, 137), rgb(33, 134, 45));
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.8;
+    border-radius: 50%;
+}
+/*
+.block:focus {
+    animation: popout 1s;
+}
+
+@keyframes popout {
+    to {
+        width: 10px;
+        height: 10px;
+    }
+} */
+
+#show {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    left: 50%;
+    top: 2%;
+    transform: translateX(-50%);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#show span, #last_score {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+#time_left, #score {
+    color: rgb(0, 255, 102);
+    font-size: calc(1.8vw + 1.8vh);
+}
+#score {
+    margin-left: -3vw;
+    color: rgb(123, 155, 126);
+;}
+#time_left::before {
+    content: 'Time Left: ';
+}
+#time_left::after {
+    content: ' Seconds';
+}
+#time_left::before, #time_left::after, #score::before {
+    color: white;
+    font-size: calc(1.5vw + 1.5vh);
+}
+#score::before {
+    content: 'Score: ';
+}
+#last_score {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(94, 255, 105);
+    letter-spacing: calc(0.1vw + 0.1vh);
+    font-size: calc(8vw + 8vh);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1vh 10vw;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+#last_score:hover {
+    background-color: rgb(94, 255, 105);
+    color: rgba(0, 0, 0, 0.4);
+}
